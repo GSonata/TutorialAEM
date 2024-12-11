@@ -1,0 +1,9 @@
+<div data-emptytext="Visit Card Component" class="cq-placeholder" data-sly-test="${properties.titulo == null}"></div>
+<sly data-sly-use.visitCardModel="com.adobe.aem.guides.core.models.VisitCardModel">
+<div class="visit-card">
+    <img src="${visitCardModel.fileReference @ context='uri'}" alt="${visitCardModel.alt}" class="visitcard-img"/>
+    <div class="innerText-card">
+        <h2 class="visitcard-title">${visitCardModel.titulo}</h2>
+        <p class="visitcard-text">${visitCardModel.text}</p>
+    </div>
+</div>

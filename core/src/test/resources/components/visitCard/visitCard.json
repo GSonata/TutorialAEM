@@ -1,0 +1,15 @@
+{
+    "data": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:createdBy": "admin",
+        "bannerAlt": "Texto Alternativo",
+        "fileReference": "/content/dam/core-components-examples/library/sample-assets/lava-rock-formation.jpeg",
+        "jcr:lastModifiedBy": "admin",
+        "titulo": "Titulo ejemplo",
+        "jcr:created": "Thu Dec 05 2024 11:36:28 GMT+0100",
+        "text": "Texto ejemplo",
+        "imagenSubida": "AEM.jpg",
+        "jcr:lastModified": "Thu Dec 05 2024 12:22:58 GMT+0100",
+        "sling:resourceType": "practica/components/visitCard"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "data": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:createdBy": "admin",
+        "title" : "Titulo esperado",
+        "eyebrow": "Eyebrow esperado",
+        "header": "Header esperado",
+        "jcr:lastModifiedBy": "admin",
+        "jcr:created": "Fri Nov 29 2024 12:08:57 GMT+0100",
+        "text": "Texto esperado",
+        "jcr:lastModified": "Fri Nov 29 2024 12:41:12 GMT+0100",
+        "sling:resourceType": "practica/components/secondComponent"
+    }
+}

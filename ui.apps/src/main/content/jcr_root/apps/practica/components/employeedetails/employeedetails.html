@@ -1,0 +1,17 @@
+<div data-emptytext="Detalles de empleado" class="cq-placeholder" data-sly-test="${properties.title == null}"></div>
+<sly data-sly-use.employeeDetails="com.adobe.aem.guides.core.models.EmployeeDetailsModel">
+
+<div class="component"> 
+<div class="${employeeDetails.companyStyle}">
+    <p>Nombre del empleado: ${employeeDetails.name} </p>
+    <p>Numero del empleado: ${employeeDetails.number} </p>
+    <p>Edad del empleado: ${employeeDetails.age} </p>
+    <p>Compañia del empleado: ${employeeDetails.company} </p>
+    <p>Puesto del empleado: ${employeeDetails.designation} </p>
+    <p>Talentos del empleado: ${employeeDetails.allTalents}
+</div>
+
+<button class="showJson">Mostrar Datos del Empleado en Json</button>
+</div>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+<sly data-sly-call="${clientlib.all @ categories='aem.tutorials'}"/>

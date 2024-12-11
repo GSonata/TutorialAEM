@@ -1,0 +1,21 @@
+.employee-background-component{
+	background-color: powderblue;
+}
+
+.employee-background-component-accenture{
+	color: white;
+	font-weight: 500;
+	background-color: rgb(173, 71, 165);
+}
+
+.employee-background-component-bsoccer{
+	color: white;
+	font-weight: 500;
+	background-color: rgb(43, 136, 93);
+}
+
+.employee-background-component-ntt{
+	color: white;
+	font-weight: 500;
+	background-color: rgb(93, 123, 221);
+}

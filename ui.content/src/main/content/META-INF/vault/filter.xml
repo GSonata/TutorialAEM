@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/practica" mode="merge"/>
+    <filter root="/content/practica" mode="merge"/>
+    <filter root="/content/dam/practica/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/practica" mode="merge"/>
+</workspaceFilter>
