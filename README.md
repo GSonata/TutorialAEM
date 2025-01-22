@@ -1,126 +1,120 @@
-# Sample AEM project template
+Plantilla de Proyecto AEM
+Esta es una plantilla de proyecto para aplicaciones basadas en AEM. Está destinada como un conjunto de ejemplos de mejores prácticas, así como un posible punto de partida para desarrollar tu propia funcionalidad.
 
-This is a project template for AEM-based applications. It is intended as a best-practice set of examples as well as a potential starting point to develop your own functionality.
+Módulos
+Las principales partes de la plantilla son:
 
-## Modules
+core: Paquete Java que contiene toda la funcionalidad central, como servicios OSGi, escuchadores o planificadores, así como el código Java relacionado con los componentes, como servlets o filtros de solicitud.
+it.tests: Pruebas de integración basadas en Java.
+ui.apps: Contiene las partes del proyecto /apps (y /etc), es decir, clientlibs de JS y CSS, componentes y plantillas.
+ui.content: Contiene contenido de ejemplo utilizando los componentes de ui.apps.
+ui.config: Contiene configuraciones OSGi específicas para el modo de ejecución del proyecto.
+ui.frontend: Un mecanismo opcional de compilación dedicado al frontend (Angular, React o un proyecto general de Webpack).
+ui.tests: Pruebas de UI basadas en Selenium.
+all: Un único paquete de contenido que agrupa todos los módulos compilados (paquetes de contenido y bundles), incluidas las dependencias de los proveedores.
+analyse: Este módulo realiza análisis del proyecto para proporcionar validación adicional antes de desplegar en AEMaaCS.
+Cómo compilar
+Para compilar todos los módulos, ejecuta el siguiente comando en el directorio raíz del proyecto con Maven 3:
 
-The main parts of the template are:
+bash
+Copiar
+Editar
+mvn clean install
+Para compilar todos los módulos y desplegar el paquete all a una instancia local de AEM, ejecuta:
 
-* core: Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
-* it.tests: Java based integration tests
-* ui.apps: contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, and templates
-* ui.content: contains sample content using the components from the ui.apps
-* ui.config: contains runmode specific OSGi configs for the project
-* ui.frontend: an optional dedicated front-end build mechanism (Angular, React or general Webpack project)
-* ui.tests: Selenium based UI tests
-* all: a single content package that embeds all of the compiled modules (bundles and content packages) including any vendor dependencies
-* analyse: this module runs analysis on the project which provides additional validation for deploying into AEMaaCS
+bash
+Copiar
+Editar
+mvn clean install -PautoInstallSinglePackage
+O para desplegar en una instancia de publicación, ejecuta:
 
-## How to build
+bash
+Copiar
+Editar
+mvn clean install -PautoInstallSinglePackagePublish
+O alternativamente:
 
-To build all the modules run in the project root directory the following command with Maven 3:
+bash
+Copiar
+Editar
+mvn clean install -PautoInstallSinglePackage -Daem.port=4503
+O para desplegar solo el bundle al autor, ejecuta:
 
-    mvn clean install
+bash
+Copiar
+Editar
+mvn clean install -PautoInstallBundle
+O para desplegar solo un paquete de contenido, ejecuta en el directorio del sub-módulo (por ejemplo, ui.apps):
 
-To build all the modules and deploy the `all` package to a local instance of AEM, run in the project root directory the following command:
+bash
+Copiar
+Editar
+mvn clean install -PautoInstallPackage
+Pruebas
+Existen tres niveles de pruebas contenidas en el proyecto:
 
-    mvn clean install -PautoInstallSinglePackage
+Pruebas unitarias
+Estas muestran la prueba clásica de unidad del código contenido en el bundle. Para probar:
 
-Or to deploy it to a publish instance, run
+bash
+Copiar
+Editar
+mvn clean test
+Pruebas de integración
+Estas permiten ejecutar pruebas de integración que ejercen las capacidades de AEM mediante llamadas HTTP a su API. Para ejecutar las pruebas de integración, usa:
 
-    mvn clean install -PautoInstallSinglePackagePublish
+bash
+Copiar
+Editar
+mvn clean verify -Plocal
+Las clases de prueba deben guardarse en el directorio src/main/java (o cualquiera de sus subdirectorios), y deben estar contenidas en archivos que coincidan con el patrón *IT.java.
 
-Or alternatively
+La configuración proporciona valores predeterminados sensatos para una instalación local típica de AEM. Si deseas apuntar las pruebas de integración a diferentes instancias de autor y publicación de AEM, puedes usar las siguientes propiedades del sistema a través del flag -D de Maven.
 
-    mvn clean install -PautoInstallSinglePackage -Daem.port=4503
+Propiedad	Descripción	Valor por defecto
+it.author.url	URL de la instancia de autor	http://localhost:4502
+it.author.user	Usuario administrador para la instancia de autor	admin
+it.author.password	Contraseña del usuario administrador para la instancia de autor	admin
+it.publish.url	URL de la instancia de publicación	http://localhost:4503
+it.publish.user	Usuario administrador para la instancia de publicación	admin
+it.publish.password	Contraseña del usuario administrador para la instancia de publicación	admin
+Las pruebas de integración en esta plantilla utilizan los AEM Testing Clients y muestran algunas mejores prácticas recomendadas para ser puestas en uso al escribir pruebas de integración para AEM.
 
-Or to deploy only the bundle to the author, run
+Análisis Estático
+El módulo analyse realiza análisis estáticos sobre el proyecto para su despliegue en AEMaaCS. Este análisis se ejecuta automáticamente al ejecutar:
 
-    mvn clean install -PautoInstallBundle
+bash
+Copiar
+Editar
+mvn clean install
+desde el directorio raíz del proyecto. Más información sobre este análisis y cómo configurarlo puede encontrarse aquí: https://github.com/adobe/aemanalyser-maven-plugin
 
-Or to deploy only a single content package, run in the sub-module directory (i.e `ui.apps`)
+Pruebas de UI
+Estas pruebas se encargan de probar la capa de UI de tu aplicación AEM utilizando la tecnología Selenium.
 
-    mvn clean install -PautoInstallPackage
+Para ejecutarlas localmente:
 
-## Testing
+bash
+Copiar
+Editar
+mvn clean verify -Pui-tests-local-execution
+Este comando por defecto requiere:
 
-There are three levels of testing contained in the project:
+Una instancia de autor de AEM disponible en http://localhost:4502 (con el proyecto completo construido y desplegado sobre ella, consulta la sección Cómo compilar más arriba).
+El navegador Chrome instalado en la ubicación predeterminada.
+Consulta el archivo README en el módulo ui.tests para más detalles.
 
-### Unit tests
+ClientLibs
+El módulo frontend se pone a disposición mediante un AEM ClientLib. Al ejecutar el script de compilación de NPM, la app se construye y el paquete aem-clientlib-generator toma el resultado de la compilación y lo transforma en una ClientLib.
 
-This show-cases classic unit testing of the code contained in the bundle. To
-test, execute:
+Una ClientLib consistirá en los siguientes archivos y directorios:
 
-    mvn clean test
+css/: Archivos CSS que pueden ser solicitados en el HTML.
+css.txt (informa a AEM del orden y nombres de los archivos en css/ para que puedan ser combinados).
+js/: Archivos JavaScript que pueden ser solicitados en el HTML.
+js.txt (informa a AEM del orden y nombres de los archivos en js/ para que puedan ser combinados).
+resources/: Mapas de origen, trozos de código no relacionados con los puntos de entrada (resultados de dividir el código), activos estáticos (por ejemplo, iconos), etc.
+Configuración de Maven
+El proyecto viene con el repositorio automático de Adobe configurado. Para configurar el repositorio en tus ajustes de Maven, consulta:
 
-### Integration tests
-
-This allows running integration tests that exercise the capabilities of AEM via
-HTTP calls to its API. To run the integration tests, run:
-
-    mvn clean verify -Plocal
-
-Test classes must be saved in the `src/main/java` directory (or any of its
-subdirectories), and must be contained in files matching the pattern `*IT.java`.
-
-The configuration provides sensible defaults for a typical local installation of
-AEM. If you want to point the integration tests to different AEM author and
-publish instances, you can use the following system properties via Maven's `-D`
-flag.
-
-| Property | Description | Default value |
-| --- | --- | --- |
-| `it.author.url` | URL of the author instance | `http://localhost:4502` |
-| `it.author.user` | Admin user for the author instance | `admin` |
-| `it.author.password` | Password of the admin user for the author instance | `admin` |
-| `it.publish.url` | URL of the publish instance | `http://localhost:4503` |
-| `it.publish.user` | Admin user for the publish instance | `admin` |
-| `it.publish.password` | Password of the admin user for the publish instance | `admin` |
-
-The integration tests in this archetype use the [AEM Testing
-Clients](https://github.com/adobe/aem-testing-clients) and showcase some
-recommended [best
-practices](https://github.com/adobe/aem-testing-clients/wiki/Best-practices) to
-be put in use when writing integration tests for AEM.
-
-## Static Analysis
-
-The `analyse` module performs static analysis on the project for deploying into AEMaaCS. It is automatically
-run when executing
-
-    mvn clean install
-
-from the project root directory. Additional information about this analysis and how to further configure it
-can be found here https://github.com/adobe/aemanalyser-maven-plugin
-
-### UI tests
-
-They will test the UI layer of your AEM application using Selenium technology. 
-
-To run them locally:
-
-    mvn clean verify -Pui-tests-local-execution
-
-This default command requires:
-* an AEM author instance available at http://localhost:4502 (with the whole project built and deployed on it, see `How to build` section above)
-* Chrome browser installed at default location
-
-Check README file in `ui.tests` module for more details.
-
-## ClientLibs
-
-The frontend module is made available using an [AEM ClientLib](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/clientlibs.html). When executing the NPM build script, the app is built and the [`aem-clientlib-generator`](https://github.com/wcm-io-frontend/aem-clientlib-generator) package takes the resulting build output and transforms it into such a ClientLib.
-
-A ClientLib will consist of the following files and directories:
-
-- `css/`: CSS files which can be requested in the HTML
-- `css.txt` (tells AEM the order and names of files in `css/` so they can be merged)
-- `js/`: JavaScript files which can be requested in the HTML
-- `js.txt` (tells AEM the order and names of files in `js/` so they can be merged
-- `resources/`: Source maps, non-entrypoint code chunks (resulting from code splitting), static assets (e.g. icons), etc.
-
-## Maven settings
-
-The project comes with the auto-public repository configured. To setup the repository in your Maven settings, refer to:
-
-    http://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html
+Configurar el repositorio de Maven de Adobe
