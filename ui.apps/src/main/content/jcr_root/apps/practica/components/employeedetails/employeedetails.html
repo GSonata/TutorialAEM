@@ -1,14 +1,15 @@
-<div data-emptytext="Detalles de empleado" class="cq-placeholder" data-sly-test="${properties.title == null}"></div>
 <sly data-sly-use.employeeDetails="com.adobe.aem.guides.core.models.EmployeeDetailsModel">
 
-<div class="component"> 
+<div data-emptytext="Detalles de empleado" class="cq-placeholder" data-sly-test="${!employeeDetails.name || scm.username == ''}"></div>
+
+<div class="component" data-sly-test="${employeeDetails.name}"> 
 <div class="${employeeDetails.companyStyle}">
     <p>Nombre del empleado: ${employeeDetails.name} </p>
     <p>Numero del empleado: ${employeeDetails.number} </p>
     <p>Edad del empleado: ${employeeDetails.age} </p>
     <p>Compañia del empleado: ${employeeDetails.company} </p>
     <p>Puesto del empleado: ${employeeDetails.designation} </p>
-    <p>Talentos del empleado: ${employeeDetails.allTalents}
+    <p>Talentos del empleado: ${employeeDetails.allTalents} </p>
 </div>
 
 <button class="showJson">Mostrar Datos del Empleado en Json</button>

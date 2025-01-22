@@ -1,12 +1,13 @@
+@use '../variables' as vars;
 
 //== XF Footer style, used on page template
 
 footer.experiencefragment {
     padding: .5em 1em;
-    border-top: 1px solid $color-foreground;
+    border-top: 1px solid vars.$color-foreground;
 
     @media (prefers-color-scheme: dark) {
-        border-color: $color-foreground-dark;
+        border-color: vars.$color-foreground-dark;
     }
 
     .cmp-separator__horizontal-rule {

@@ -1,8 +1,19 @@
-.cmp-search {}
+.cmp-search {
+    min-height: 100%;
+}
 .cmp-search__form {}
 .cmp-search__field {}
-.cmp-search__icon {}
-.cmp-search__input {}
+
+.cmp-search__icon {
+    margin-top: 21.5px;
+    padding-right: 1px;
+}
+
+.cmp-search__input {
+    margin-top: 21.5px;
+    transition: 0.5s all;
+    border-radius: 0;
+}
 .cmp-search__loading-indicator {}
 .cmp-search__clear {}
 .cmp-search__clear-icon {}
@@ -11,3 +22,13 @@
 .cmp-search__item--is-focused {}
 .cmp-search__item-mark {}
 .cmp-search__item-title {}
+
+.cmp-search__input:focus {
+
+    .cmp-search__icon{
+        color: white;
+    }
+
+    background-color: rgba(216, 82, 187, 0.356);
+    color: transparent;
+}

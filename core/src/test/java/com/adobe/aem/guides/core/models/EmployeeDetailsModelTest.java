@@ -17,13 +17,17 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 public class EmployeeDetailsModelTest {
 
     private final AemContext aemContext = new AemContext();
+    private final String json_Path = "/components/employeeDetails/EmployeeDetails.json";
+    private final String jsonName = "/component";
+    private final String jsonResolver = "/component/data";
+    
     EmployeeDetailsModel employeeDetailsModel;
+    
     @BeforeEach 
-
     void setUp() throws Exception{
         aemContext.addModelsForClasses(EmployeeDetailsModel.class);
-        aemContext.load().json("/components/employeeDetails/EmployeeDetails.json","/component");
-        Resource resource = aemContext.resourceResolver().getResource("/component/data");
+        aemContext.load().json(json_Path,jsonName);
+        Resource resource = aemContext.resourceResolver().getResource(jsonResolver);
         employeeDetailsModel = aemContext.getService(ModelFactory.class).createModel(resource, EmployeeDetailsModel.class);
     }
 

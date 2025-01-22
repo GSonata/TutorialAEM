@@ -1,26 +1,28 @@
+@use './variables' as vars;
+
 //== Base
 
 html,
 body {
     margin: 0;
-    font-size:   $font-size;
-    font-family: $font-family;
-    line-height: $font-height;
-    color:       $color-foreground;
-    background:  $color-background;
+    font-size:   vars.$font-size;
+    font-family: vars.$font-family;
+    line-height: vars.$font-height;
+    color:       vars.$color-foreground;
+    background:  vars.$color-background;
 
     @media (prefers-color-scheme: dark) {
-        color:       $color-foreground-dark;
-        background:  $color-background-dark;
+        color:       vars.$color-foreground-dark;
+        background:  vars.$color-background-dark;
     }
 }
 
 
 a {
-    color: $color-link;
+    color: vars.$color-link;
 
     @media (prefers-color-scheme: dark) {
-        color: $color-link-dark;
+        color: vars.$color-link-dark;
     }
 }
 

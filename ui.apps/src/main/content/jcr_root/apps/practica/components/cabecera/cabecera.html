@@ -1,0 +1,19 @@
+<sly data-sly-use.cabecera="com.adobe.aem.guides.core.models.CabeceraModel">
+
+<div data-emptytext="Cabecera Customizada" class="cq-placeholder" data-sly-test="${!cabecera.titulo || cabecera.titulo == ''}"></div>
+<sly data-sly-test="${cabecera.titulo}">
+    <div class="component"> 
+        <aside class="responsive-banner">
+            <span class="circle-a"></span>
+            <span class="circle-b"></span>
+            <img class="bannerImage" src="${cabecera.imagenReference}" alt="Logotipo de la cabecera"/>
+            <div class="container-envelope">
+                <p>${cabecera.titulo}</p>
+                <button data-path="${cabecera.pathResource}" class = "go-btn" target="${cabecera.targetoption}">${cabecera.textoboton}</a>
+            </div>
+        </aside>
+    </div>
+</sly>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+<sly data-sly-call="${clientlib.all @ categories='aem.tutorials'}"/>

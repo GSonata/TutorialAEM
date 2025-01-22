@@ -22,7 +22,4 @@ public class ThirdComponentListModel {
     public String getHeader() {
         return header;
     }
-
-    
-
 }

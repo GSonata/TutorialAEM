@@ -1,0 +1,12 @@
+{
+    "data": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:createdBy": "admin",
+        "jcr:lastModifiedBy": "admin",
+        "jcr:created": "Fri Jan 10 2025 11:03:14 GMT+0100",
+        "username": "username",
+        "jcr:lastModified": "Fri Jan 10 2025 11:28:14 GMT+0100",
+        "sling:resourceType": "practica/components/socialmedialist",
+        "platform": "x"
+    }
+}

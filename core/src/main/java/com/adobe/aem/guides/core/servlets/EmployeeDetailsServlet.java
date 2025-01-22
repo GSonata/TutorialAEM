@@ -12,6 +12,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.ServletResolverConstants;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
+import org.apache.sling.servlets.annotations.SlingServletResourceTypes;
 import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,13 +24,14 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
-@Component(service = Servlet.class, 
-    property = {
-        ServletResolverConstants.SLING_SERVLET_RESOURCE_TYPES + "=" + "practica/components/page",
-        ServletResolverConstants.SLING_SERVLET_METHODS + "=" + HttpConstants.METHOD_GET,
-        ServletResolverConstants.SLING_SERVLET_EXTENSIONS + "=" + "json"
-    }
+@Component(service = {Servlet.class})
+@SlingServletResourceTypes(
+    resourceTypes = { "sling/servlet/default" },
+    selectors = "EmployeeDetailsServletjava",
+    extensions = "json",
+    methods = HttpConstants.METHOD_GET
 )
+
 
 public class EmployeeDetailsServlet extends SlingSafeMethodsServlet {
 

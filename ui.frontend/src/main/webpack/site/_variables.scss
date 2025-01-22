@@ -1,3 +1,4 @@
+@use "sass:color";
 
 //== Font
 
@@ -13,6 +14,6 @@ $color-background:      #ECECEC;
 $color-link:            #2020E0;
 
 // Dark mode
-$color-foreground-dark: invert($color-foreground);
-$color-background-dark: invert($color-background);
-$color-link-dark:       invert($color-link);
+$color-foreground-dark: color.adjust($color-foreground, $lightness: 100%);
+$color-background-dark: color.adjust($color-background, $lightness: -100%);
+$color-link-dark:       color.adjust($color-link, $lightness: 100%);

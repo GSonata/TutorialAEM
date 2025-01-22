@@ -38,20 +38,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Quitar todas las clases actuales
 
+        companyDiv.className = ""; // Clear all existing classes
+
+
         switch (properties.company) {
             case ("Accenture"):
-                companyDiv.classList.add(".employee-background-component-accenture");
+                companyDiv.classList.add("employee-background-component-accenture");
                 break;
             case ("NTT Data"):
-                companyDiv.classList.add(".employee-background-component-ntt");
+                companyDiv.classList.add("employee-background-component-ntt");
                 break;
             case ("BSoccer"):
-                companyDiv.classList.add(".employee-background-component-bsoccer");
+                companyDiv.classList.add("employee-background-component-bsoccer");
                 break;
         }
     });
 
-    // Configurar el observer para observar cambios en el texto del <p>
-    observer.observe(selectedCompany, { childList: true, subtree: true });
+    if(selectedCompany){
+        observer.observe(selectedCompany, { childList: true, subtree: true });
+
+    }
 
 });

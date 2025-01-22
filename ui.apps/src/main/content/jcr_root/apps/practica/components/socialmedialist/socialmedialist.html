@@ -1,0 +1,7 @@
+<sly data-sly-use.scm="com.adobe.aem.guides.core.models.SocialMediaEntry">
+
+<div data-emptytext="Social Media Entry" class="cq-placeholder" data-sly-test="${!scm.username || scm.username == ''}"></div>
+<div data-sly-test="${scm.username}" class="social-media-entry-${scm.platform}">
+<img class="social-media-img" width="40" height="40" src="${scm.platformIcon}" alt="${scm.platform} icon"/>
+<span class="social-media-username">${scm.username}</span>  
+</div>
