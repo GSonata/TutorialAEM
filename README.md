@@ -8,6 +8,9 @@ Proyecto de práctica en la que estoy desarrollando el conocimiento de las disti
 > 
  ## Actualizaciones
 
+- **JavaScript y Sling**:
+  - **Añadida la funcionalidad de un newPageWizard Customizado, en este aparece un nombre generado aleatoriament en conjunto con la ruta de creación de la nueva página.**
+    
 - **Workflow**:
   - **Añadidos componentes workflow customizados, desplegados en la página, funcionan.**
   - **Añadido componente customizado, abre https://google.com al ser ejecutado.**
@@ -15,7 +18,8 @@ Proyecto de práctica en la que estoy desarrollando el conocimiento de las disti
 
  ## Futuro proyecto:
 
-Busco añadir un workflow que añada automaticamente el nombre de la pagina al crear la misma
+Extraer el servicio del newPageWizard en un archivo .jar/.zip para que se pueda transladar entre instancias locales de AEM. 
+Componente complejo para añadir un componente Mapa de Google de forma interactiva con el dialogo de AEM.
 
 ## Módulos
 
