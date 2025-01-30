@@ -10,7 +10,7 @@ Proyecto de práctica en la que estoy desarrollando el conocimiento de las disti
 
 - **Componentes**:
   - **Banner Customizado de Redes Sociales:** permite añadir nombre de usuario así como plataforma(LinkdedIN, GitHub, Facebook, X). Cada entrada tiene css personalizado
-  - **Mapa Insertado v1 **: componente que despliega un componente de mapa customizable, añadiendo URL de Google MAPS del dialogo lo muestra utilizando APIs de Leaflet y OpenStreetMaps
+  - **Mapa Insertado v1**: componente que despliega un componente de mapa customizable, añadiendo URL de Google MAPS del dialogo lo muestra utilizando APIs de Leaflet y OpenStreetMaps
     -  _Para el v2 se pretende añadir funcionalidad para elegir la ubicación del mapa desde el dialogo de AEM._
 
    
