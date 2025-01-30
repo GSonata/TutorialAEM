@@ -15,17 +15,19 @@ Proyecto de práctica en la que estoy desarrollando el conocimiento de las disti
 
    
 - **JavaScript y Sling**:
-  - **Añadida la funcionalidad de un newPageWizard Customizado, en este aparece un nombre generado aleatoriament en conjunto con la ruta de creación de la nueva página.**
+  - Añadida la funcionalidad de un newPageWizard Customizado, en este aparece un nombre generado aleatoriament en conjunto con la ruta de creación de la nueva página.
     
 - **Workflow**:
-  - **Añadidos componentes workflow customizados, desplegados en la página, funcionan.**
-  - **Añadido componente customizado, abre https://google.com al ser ejecutado.**
-  - **Añadido Servlet que ejecuta el workflow sin tener que añadir un launcher al proceso.**
+  - Añadidos componentes workflow customizados, desplegados en la página, funcionan.
+  - Añadido componente customizado, abre https://google.com al ser ejecutado.
+  - Añadido Servlet que ejecuta el workflow sin tener que añadir un launcher al proceso.
 
  ## Futuro proyecto:
 
-Extraer el servicio del newPageWizard en un archivo .jar/.zip para que se pueda transladar entre instancias locales de AEM. 
-Componente complejo para añadir un componente Mapa de Google de forma interactiva con el dialogo de AEM.
+* Extraer el servicio del newPageWizard en un archivo .jar/.zip para que se pueda transladar entre instancias locales de AEM. 
+* Componente complejo para añadir un componente Mapa de Google de forma interactiva con el dialogo de AEM.
+* Desarrollar funcionalidad para cambiar modo oscuro / modo claro
+* Componente de carrusel de imagenes, añadidas por el usuario
 
 ## Módulos
 
