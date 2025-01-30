@@ -1,51 +1,57 @@
-# Proyecto de prácticas AEM // Accenture
+# 🚀 Proyecto de Prácticas AEM // Accenture  
 
-Proyecto de práctica en la que estoy desarrollando el conocimiento de las distintas partes de un proyecto de AEM.
+📌 **Proyecto de práctica en el que estoy desarrollando el conocimiento de las distintas partes de un proyecto de AEM.**  
 
-> [!NOTE]
-> Cualquier adición o corrección es bienvenida.
->
-> 
- ## FUNCIONALIDADES
+> ℹ️ **Cualquier adición o corrección es bienvenida.**  
 
-- **Componentes**:
-  - **Banner Customizado de Redes Sociales:** permite añadir nombre de usuario así como plataforma(LinkdedIN, GitHub, Facebook, X). Cada entrada tiene css personalizado
-  - **Mapa Insertado v1**: componente que despliega un componente de mapa customizable, añadiendo URL de Google MAPS del dialogo lo muestra utilizando APIs de Leaflet y OpenStreetMaps
-    -  _Para el v2 se pretende añadir funcionalidad para elegir la ubicación del mapa desde el dialogo de AEM._
+## ✨ FUNCIONALIDADES  
 
-   
-- **JavaScript y Sling**:
-  - Añadida la funcionalidad de un newPageWizard Customizado, en este aparece un nombre generado aleatoriament en conjunto con la ruta de creación de la nueva página.
-    
-- **Workflow**:
-  - Añadidos componentes workflow customizados, desplegados en la página, funcionan.
-  - Añadido componente customizado, abre https://google.com al ser ejecutado.
-  - Añadido Servlet que ejecuta el workflow sin tener que añadir un launcher al proceso.
+- **🧩 Componentes:**  
+  - **📢 Banner Customizado de Redes Sociales:** permite añadir nombre de usuario así como plataforma (LinkedIn, GitHub, Facebook, X). Cada entrada tiene CSS personalizado.  
+  - **🗺️ Mapa Insertado v1:** despliega un componente de mapa customizable, añadiendo la URL de Google Maps desde el diálogo y mostrándolo utilizando APIs de **Leaflet** y **OpenStreetMaps**.  
+    - 🔜 _Para el v2 se pretende añadir funcionalidad para elegir la ubicación del mapa desde el diálogo de AEM._  
 
- ## Futuro proyecto:
+- **💻 JavaScript y Sling:**  
+  - ✅ Añadida la funcionalidad de un **NewPageWizard Customizado**, en el que aparece un nombre generado aleatoriamente en conjunto con la ruta de creación de la nueva página.  
 
-* Extraer el servicio del newPageWizard en un archivo .jar/.zip para que se pueda transladar entre instancias locales de AEM. 
-* Componente complejo para añadir un componente Mapa de Google de forma interactiva con el dialogo de AEM.
-* Desarrollar funcionalidad para cambiar modo oscuro / modo claro
-* Componente de carrusel de imagenes, añadidas por el usuario
+- **⚙️ Workflow:**  
+  - ✅ Añadidos componentes **Workflow customizados**, desplegados en la página, funcionando correctamente.  
+  - ✅ Añadido componente customizado que abre [Google](https://google.com) al ser ejecutado.  
+  - ✅ Añadido **Servlet** que ejecuta el workflow sin necesidad de añadir un launcher al proceso.  
 
-## Módulos
+---
 
-Las principales partes de la plantilla son:
+## 🔮 Futuro Proyecto  
 
-- **`core`**: Paquete Java que contiene toda la funcionalidad central, como servicios OSGi, escuchadores o planificadores, así como el código Java relacionado con los componentes, como servlets o filtros de solicitud.
-- **`it.tests`**: Pruebas de integración basadas en Java.
-- **`ui.apps`**: Contiene las partes del proyecto `/apps` (y `/etc`), es decir, clientlibs de JS y CSS, componentes y plantillas.
-- **`ui.content`**: Contiene contenido de ejemplo utilizando los componentes de `ui.apps`.
-- **`ui.config`**: Contiene configuraciones OSGi específicas para el modo de ejecución del proyecto.
-- **`ui.frontend`**: Un mecanismo opcional de compilación dedicado al frontend (Angular, React o un proyecto general de Webpack).
-- **`ui.tests`**: Pruebas de UI basadas en Selenium.
-- **`all`**: Un único paquete de contenido que agrupa todos los módulos compilados (paquetes de contenido y bundles), incluidas las dependencias de los proveedores.
-- **`analyse`**: Este módulo realiza análisis del proyecto para proporcionar validación adicional antes de desplegar en AEMaaCS.
+- 📦 Extraer el servicio del **NewPageWizard** en un archivo `.jar`/`.zip` para que se pueda trasladar entre instancias locales de AEM.  
+- 🌍 Componente complejo para añadir un **Mapa de Google** de forma interactiva con el diálogo de AEM.  
+- 🌙 Desarrollar funcionalidad para cambiar entre **modo oscuro / modo claro**.  
+- 🖼️ Componente de **carrusel de imágenes**, añadidas por el usuario.  
 
-## Cómo compilar
+---
 
-Para compilar todos los módulos, ejecuta el siguiente comando en el directorio raíz del proyecto con Maven 3:
+## 🏗️ Módulos  
+
+Las principales partes de la plantilla son:  
+
+- **📂 `core`** → Paquete Java con la funcionalidad central: servicios OSGi, escuchadores, planificadores, servlets y filtros.  
+- **🧪 `it.tests`** → Pruebas de integración basadas en Java.  
+- **🎨 `ui.apps`** → Contiene las partes del proyecto en `/apps` (y `/etc`), incluyendo **clientlibs** de JS y CSS, componentes y plantillas.  
+- **📝 `ui.content`** → Contiene contenido de ejemplo utilizando los componentes de `ui.apps`.  
+- **⚙️ `ui.config`** → Contiene configuraciones OSGi específicas del proyecto.  
+- **🌐 `ui.frontend`** → Mecanismo opcional de compilación para frontend (Angular, React o Webpack).  
+- **🖥️ `ui.tests`** → Pruebas de UI basadas en Selenium.  
+- **📦 `all`** → Un único paquete que agrupa todos los módulos compilados y dependencias.  
+- **🔍 `analyse`** → Realiza análisis del proyecto para validar antes de desplegar en AEMaaCS.  
+
+---
+
+## 🛠️ Cómo Compilar  
+
+Para compilar todos los módulos, ejecuta en la raíz del proyecto con Maven 3:  
+
+```bash
+mvn clean install
 
 ```bash
 mvn clean install
