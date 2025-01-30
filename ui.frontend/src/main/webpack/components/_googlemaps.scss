@@ -1,0 +1,10 @@
+.google-maps-container{
+    margin: 5px 10px;
+    border: 10px solid white;
+    box-shadow: 
+        inset 0 8px 6px rgba(0, 0, 0, 1), /* Sombra interna (inner shadow) */
+        0 8px 12px rgba(0, 0, 0, 0.4); /* Sombra exterior */
+    border-radius: 10px; /* Bordes redondeados para mejorar el efecto */
+    overflow: hidden; /* Evita que el contenido sobresalga */
+}
+

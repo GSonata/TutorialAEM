@@ -1,10 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM fully loaded and parsed");
 
-    // Flag to track if the fetch has already been executed
     let fetchTriggered = false;
 
-    // Select the body as the target for the MutationObserver
     const observerTarget = document.querySelector("body");
     if (!observerTarget) {
         console.error("Observer target (body) not found");
@@ -13,16 +11,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const observer = new MutationObserver((mutationsList, observer) => {
         mutationsList.forEach(() => {
-            // Select the pageName field dynamically
+
             const pageNameField = document.querySelector("input[name='pageName']");
             if (pageNameField && !fetchTriggered && !pageNameField.value) {
                 console.log("Input field 'pageName' found and empty:", pageNameField);
 
-                // Get the current path from the form or use a default value
                 const currentPath = document.querySelector("input[name='parentPath']")?.value || "default-path";
 
-                // Trigger fetch to get the generated name
-                fetchTriggered = true; // Prevent subsequent fetches
+                fetchTriggered = true; 
                 fetch(`/bin/generate-page-name?path=${encodeURIComponent(currentPath)}`)
                     .then((response) => response.json())
                     .then((data) => {
@@ -38,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
                                 pageNameField.dispatchEvent(event);
                                 console.log("Change event dispatched for 'pageName' field");
 
-                                // Disconnect the observer after the value is set
                                 observer.disconnect();
                                 console.log("MutationObserver disconnected");
                             } else {
@@ -53,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Configure the MutationObserver to detect dynamic changes in the DOM
     observer.observe(observerTarget, {
         childList: true, // Observe when children are added or removed
         subtree: true,   // Observe changes in all descendants

@@ -1,0 +1,52 @@
+<sly data-sly-use.mapModel="com.adobe.aem.guides.core.models.GoogleMapsModel" />
+
+<cq:includeClientLib categories="practica.site" />
+
+<!-- TEST QUE COMPRUEBA SI LA LATITUD O LA LONGITUD NO EXISTEN -->
+<sly data-sly-test.isMissing="${!mapModel.lat || mapModel.lat == '' || !mapModel.lng || mapModel.lng == ''}"></sly>
+
+<!-- MOSTRAR ESTE PLACEHOLDER SI EL TEST ES FUNCIONA-->
+<div data-emptytext="Google Maps"
+     class="cq-placeholder"
+     data-sly-test="${isMissing}">
+</div>
+
+<div class="google-maps-container"
+     data-latitude="${mapModel.lat}"
+     data-longitude="${mapModel.lng}"
+     data-sly-test="${!isMissing}"
+     style="width: 100%; height: 600px;">
+    <div id="map" style="width: 100%; height: 100%;"></div>
+</div>
+
+<script data-sly-test="${!isMissing}">
+    (function () {
+        document.addEventListener("DOMContentLoaded", function () {
+            var container = document.querySelector(".google-maps-container");
+            var lat = parseFloat(container.getAttribute("data-latitude")) || 40.4168;
+            var lng = parseFloat(container.getAttribute("data-longitude")) || -3.7038;
+
+            function initLeafletMap() {
+                var map = L.map("map").setView([lat, lng], 24);
+                L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                    attribution: "&copy; OpenStreetMap contributors"
+                }).addTo(map);
+                L.marker([lat, lng]).addTo(map);
+            }
+
+            if (typeof L === "undefined") {
+                var script = document.createElement("script");
+                script.src = "https://unpkg.com/leaflet/dist/leaflet.js";
+                script.onload = initLeafletMap;
+                document.head.appendChild(script);
+
+                var link = document.createElement("link");
+                link.rel = "stylesheet";
+                link.href = "https://unpkg.com/leaflet/dist/leaflet.css";
+                document.head.appendChild(link);
+            } else {
+                initLeafletMap();
+            }
+        });
+    })();
+</script>
