@@ -6,8 +6,17 @@ Proyecto de práctica en la que estoy desarrollando el conocimiento de las disti
 > Cualquier adición o corrección es bienvenida.
 >
 > 
- ## Actualizaciones
+ ## FUNCIONALIDADES
 
+- **Componentes**:
+  - **Banner Customizado de Redes Sociales:** permite añadir nombre de usuario así como plataforma(LinkdedIN, GitHub, Facebook, X). Cada entrada tiene css personalizado
+  - **Mapa Insertado v1**: componente que despliega un componente de mapa customizable, añadiendo URL de Google MAPS del dialogo lo muestra utilizando APIs de Leaflet y OpenStreetMaps
+    -  _Para el v2 se pretende añadir funcionalidad para elegir la ubicación del mapa desde el dialogo de AEM._
+
+   
+- **JavaScript y Sling**:
+  - **Añadida la funcionalidad de un newPageWizard Customizado, en este aparece un nombre generado aleatoriament en conjunto con la ruta de creación de la nueva página.**
+    
 - **Workflow**:
   - **Añadidos componentes workflow customizados, desplegados en la página, funcionan.**
   - **Añadido componente customizado, abre https://google.com al ser ejecutado.**
@@ -15,7 +24,8 @@ Proyecto de práctica en la que estoy desarrollando el conocimiento de las disti
 
  ## Futuro proyecto:
 
-Busco añadir un workflow que añada automaticamente el nombre de la pagina al crear la misma
+Extraer el servicio del newPageWizard en un archivo .jar/.zip para que se pueda transladar entre instancias locales de AEM. 
+Componente complejo para añadir un componente Mapa de Google de forma interactiva con el dialogo de AEM.
 
 ## Módulos
 
